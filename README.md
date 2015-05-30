@@ -21,7 +21,7 @@ This application was initially developed by SharePoint developers at Definitive 
 
 4) Navigate to "{sitelocation}/kospgenerator-master/KOSPGenerator.aspx" within the browser.  You should see something similar to the screenshot below.
 
-![KOSPFigure](/images/KOSPFigure.png)
+![KOSPFigure](https://github.com/definitivelogic/kospgenerator/blob/master/images/KOSPFigure.PNG)
 
 ##General Information
 
