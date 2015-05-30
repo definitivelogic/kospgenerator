@@ -7,7 +7,7 @@ This open source tool is made possible with the help of the following open sourc
 	1. SPServices
 	2. Knockout.js
 	3. Bootstrap
-	4. Initializr
+	4. <a href="http://www.initializr.com/">Initializr</a>
 
 This application was initially developed by SharePoint developers at Definitive Logic.  For more information about the company please visit DefinitiveLogic.com or contact us directly.
 
