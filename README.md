@@ -36,9 +36,7 @@ SharePoint Types Supported
 {choice:"Enter Choice #3"}\]
 |
 |&lt;select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"&gt;&lt;/select&gt;
-|Choice (Multiple)|Column value saved in an observable array.|Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:|
-
-\[{choice:"Enter Choice #1"},
+|Choice (Multiple)|Column value saved in an observable array.|Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:|\[{choice:"Enter Choice #1"},
 {choice:"Enter Choice #2"},
 {choice:"Enter Choice #3"}\]
 |
