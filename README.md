@@ -28,74 +28,74 @@ SharePoint Types Supported
 |Type  | 				Observable Information Notes | Example View Syntax|
 |------------- | ------------- | -------------|
 |Single line of text	|Column value saved as an observable.	|&lt;p data-bind="text: myText()"&gt;&lt;/p&gt;|
-|Multiple lines of text	|Column value saved as an observable. No encoding of the data occurs.|	<textarea data-bind="text: myMultiText()"></textarea>|
+|Multiple lines of text	|Column value saved as an observable. No encoding of the data occurs.|	&lt;textarea data-bind="text: myMultiText()"&gt;&lt;/textarea&gt;|
 |Choice	|Column value saved as an observable. Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:
 
 [{choice:"Enter Choice #1"},
 {choice:"Enter Choice #2"},
 {choice:"Enter Choice #3"}]
 |
-|<select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"></select>
+|&lt;select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"&gt;&lt;/select&gt;
 |Choice (Multiple)|Column value saved in an observable array.|Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:
 
 [{choice:"Enter Choice #1"},
 {choice:"Enter Choice #2"},
 {choice:"Enter Choice #3"}]
 |
-|<select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"></select>|
+|&lt;select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"&gt;&lt;/select&gt;|
 |Number|Column value saved as an observable. If the column is represented as a percentage a computed function is also available with the appended _Display to the Display Name of the column.
 For example if the display name of the Number is "My Num" the computed function would be myNum_Display.|
-<p data-bind="text: myNum()"></p>
+&lt;p data-bind="text: myNum()"&gt;&lt;/p&gt;
 
 or
 
-<p data-bind="text: myNum_Display()"></p>|
-|Currency	|Column value saved as an observable.|<p data-bind="text: myMoney()"></p>|
-|Date and Time|Column value saved as a DateTime object in an observable.| <p data-bind="text: myDateTime()"></p>|
+&lt;p data-bind="text: myNum_Display()"&gt;&lt;/p&gt;|
+|Currency	|Column value saved as an observable.|&lt;p data-bind="text: myMoney()"&gt;&lt;/p&gt;|
+|Date and Time|Column value saved as a DateTime object in an observable.| &lt;p data-bind="text: myDateTime()"&gt;&lt;/p&gt;|
 |Lookup|Column value saved as an object within an observable.  The object has an id property and a value property.  For example: {id: 1, value: "Title"}|
-<p data-bind="text: myLookup().id"></p>
+&lt;p data-bind="text: myLookup().id"&gt;&lt;/p&gt;
 
-<p data-bind="text: myLookup().value"></p>
+&lt;p data-bind="text: myLookup().value"&gt;&lt;/p&gt;
 
 |Lookup (Multiple)|Column values are stored in an observable array. The object has an id property and a value property.  For example: {id: 1, value: "Title"}.|
 
  	 
-<table>
-    <thead>
-        <tr><th>ID</th>
-<th>Value</th></tr>
-    </thead>
-    <tbody data-bind="foreach: myLookups">
-        <tr>
-            <td data-bind="text: id"></td>
-            <td data-bind="text: value"></td>
-        </tr>
-    </tbody>
-</table>|
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody data-bind="foreach: myLookups"&gt;
+        &lt;tr&gt;
+            &lt;td data-bind="text: id"&gt;&lt;/td&gt;
+            &lt;td data-bind="text: value"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;|
 |Yes/No	|
 |Column value saved as a true or false.|
 
 There is a computed function to help display the data as Yes or No.  For example if the Yes/No column was named "Is True?" then the computed function would be isTrue_Display.|
 
  	 
-<p data-bind="text: myYesNo_Display()"></p>
+&lt;p data-bind="text: myYesNo_Display()"&gt;&lt;/p&gt;
 |
 |Person or Group|	 Column value saved as an object within an observable.  The object has an id property and a value property.  For example: {id: 1, value: "John Doe"}|	 	 
-<p data-bind="text: myUserGroup().id"></p>
+&lt;p data-bind="text: myUserGroup().id"&gt;&lt;/p&gt;
 
-<p data-bind="text: myUserGroup().value"></p>
+&lt;p data-bind="text: myUserGroup().value"&gt;&lt;/p&gt;
 |
 |Person or Group (Multiple)	|Column values are stored in an observable array. The object has an id property and a value property.  For example: {id: 1, value: "Title"}.|	 	 
-<table>
-    <thead>
-        <tr><th>ID</th>
-<th>Value</th></tr>
-    </thead>
-    <tbody data-bind="foreach: myUserGroups">
-        <tr>
-            <td data-bind="text: id"></td>
-            <td data-bind="text: value"></td>
-        </tr>
-    </tbody>
-</table>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody data-bind="foreach: myUserGroups"&gt;
+        &lt;tr&gt;
+            &lt;td data-bind="text: id"&gt;&lt;/td&gt;
+            &lt;td data-bind="text: value"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 |
