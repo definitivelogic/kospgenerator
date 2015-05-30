@@ -25,7 +25,8 @@ Each observable or observable array created for a column is given the following 
 2. .staticName:  This is the internal or static name of the column.  This may be different from the display name.  The static name can assist with querying SharePoint or consuming data returned from SharePoint.
 SharePoint Types Supported
 
-|Type	|Observable Information	Notes	|Example View Syntax|
+|Type  | 				Observable Information Notes | Example View Syntax|
+|------------- | ------------- | -------------|
 |Single line of text	|Column value saved as an observable.	|<p data-bind="text: myText()"></p>|
 |Multiple lines of text	|Column value saved as an observable. No encoding of the data occurs.|	<textarea data-bind="text: myMultiText()"></textarea>|
 |Choice	|Column value saved as an observable. Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:
