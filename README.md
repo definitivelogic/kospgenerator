@@ -29,24 +29,10 @@ SharePoint Types Supported
 |------------- | ------------- | -------------|
 |Single line of text	|Column value saved as an observable.	|&lt;p data-bind="text: myText()"&gt;&lt;/p&gt;|
 |Multiple lines of text	|Column value saved as an observable. No encoding of the data occurs.|	&lt;textarea data-bind="text: myMultiText()"&gt;&lt;/textarea&gt;|
-|Choice	|Column value saved as an observable. Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:|
-
-\[{choice:"Enter Choice #1"},
-{choice:"Enter Choice #2"},
-{choice:"Enter Choice #3"}\]
-|
-|&lt;select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"&gt;&lt;/select&gt;
-|Choice (Multiple)|Column value saved in an observable array.|Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:|\[{choice:"Enter Choice #1"},
-{choice:"Enter Choice #2"},
-{choice:"Enter Choice #3"}\]
-|
-|&lt;select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"&gt;&lt;/select&gt;|
-|Number|Column value saved as an observable. If the column is represented as a percentage a computed function is also available with the appended _Display to the Display Name of the column.
-For example if the display name of the Number is "My Num" the computed function would be myNum_Display.|
-&lt;p data-bind="text: myNum()"&gt;&lt;/p&gt;
-
+|Choice	|Column value saved as an observable. Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:[{choice:"Enter Choice #1"},{choice:"Enter Choice #2"},{choice:"Enter Choice #3"}\]|&lt;select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"&gt;&lt;/select&gt;|
+|Choice (Multiple)|Column value saved in an observable array.|Possible values for column are provided with an observable array.  The name of the computed function is the camelCase of the Display Name appended with "_Choices".  For example if the display name was "My Choices" then the computed function would be myChoices_Choices with the following values:[{choice:"Enter Choice #1"},{choice:"Enter Choice #2"},{choice:"Enter Choice #3"}]|&lt;select data-bind="options: myChoice_Choices, optionsText: 'choice', optionsValue: 'choice', value: myChoice"&gt;&lt;/select&gt;|
+|Number|Column value saved as an observable. If the column is represented as a percentage a computed function is also available with the appended _Display to the Display Name of the column. For example if the display name of the Number is "My Num" the computed function would be myNum_Display.|&lt;p data-bind="text: myNum()"&gt;&lt;/p&gt;
 or
-
 &lt;p data-bind="text: myNum_Display()"&gt;&lt;/p&gt;|
 |Currency	|Column value saved as an observable.|&lt;p data-bind="text: myMoney()"&gt;&lt;/p&gt;|
 |Date and Time|Column value saved as a DateTime object in an observable.| &lt;p data-bind="text: myDateTime()"&gt;&lt;/p&gt;|
