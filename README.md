@@ -14,9 +14,9 @@ This application was initially developed by SharePoint developers at Definitive 
 ##Table of Contents
 
 - [Download Instructions](#download-instructions)
-- [System Requirements](#system-requirements)
+ - [System Requirements](#system-requirements)
 - [General Information] (#general-information)
--[Naming Conventions for Generated Code](#naming-conventions-for-generated-code)
+ - [Naming Conventions](#naming-conventions)
 
 ##Download Instructions
 
