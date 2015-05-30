@@ -11,6 +11,18 @@ This open source tool is made possible with the help of the following open sourc
 
 This application was initially developed by SharePoint developers at Definitive Logic.  For more information about the company please visit DefinitiveLogic.com or contact us directly.
 
+##Download Instructions
+
+1. Download the latest zip file.
+
+2. Once downloaded, unzip the file within a folder called "kospgenerator-master".
+
+3. Upload the folder to the Style Library or Site Pages.  This is commonly done through SharePoint Designer via "drag and drop" or you could upload the contents manually.
+
+4) Navigate to "{sitelocation}/kospgenerator-master/KOSPGenerator.aspx" within the browser.  You should see something similar to the screenshot below.
+
+![KOSPFigure](/images/KOSPFigure.png)
+
 ##General Information
 
 ###Naming Conventions for Generated Code
@@ -39,3 +51,4 @@ SharePoint Types Supported
 |Yes/No	|Column value saved as a true or false.|There is a computed function to help display the data as Yes or No.  For example if the Yes/No column was named "Is True?" then the computed function would be isTrue_Display.|&lt;p data-bind="text: myYesNo_Display()"&gt;&lt;/p&gt;|
 |Person or Group|Column value saved as an object within an observable.  The object has an id property and a value property.  For example: {id: 1, value: "John Doe"}|&lt;p data-bind="text: myUserGroup().id"&gt;&lt;/p&gt; &lt;p data-bind="text: myUserGroup().value"&gt;&lt;/p&gt;|
 |Person or Group (Multiple)	|Column values are stored in an observable array. The object has an id property and a value property.  For example: {id: 1, value: "Title"}.|&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody data-bind="foreach: myUserGroups"&gt;&lt;tr&gt;&lt;td data-bind="text: id"&gt;&lt;/td&gt;&lt;td data-bind="text: value"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;|
+
