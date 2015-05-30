@@ -4,10 +4,10 @@ Building Knockout View Models for SharePoint can be a time consuming process.  M
 
 This open source tool is made possible with the help of the following open source libraries:
 
-	1. [SPServices] (https://github.com/sympmarc/SPServices)
-	2. [Knockout.js](http://knockoutjs.com/)
-	3. [Bootstrap](http://getbootstrap.com)
-	4. [Initializr](http://www.initializr.com)
+[SPServices] (https://github.com/sympmarc/SPServices)
+[Knockout.js](http://knockoutjs.com/)
+[Bootstrap](http://getbootstrap.com)
+[Initializr](http://www.initializr.com)
 
 This application was initially developed by SharePoint developers at Definitive Logic.  For more information about the company please visit DefinitiveLogic.com or contact us directly.
 
