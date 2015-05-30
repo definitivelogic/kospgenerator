@@ -11,6 +11,13 @@ This open source tool is made possible with the help of the following open sourc
 
 This application was initially developed by SharePoint developers at Definitive Logic.  For more information about the company please visit DefinitiveLogic.com or contact us directly.
 
+##Table of Contents
+
+- [Download Instructions](#download-instructions)
+ - [System Requirements](#system-requirements)
+- [General Information] (#general-information)
+ -[Naming Conventions for Generated Code](#naming-conventions-for-generated-code)
+
 ##Download Instructions
 
 1. Download the latest zip file.
@@ -22,6 +29,11 @@ This application was initially developed by SharePoint developers at Definitive 
 4) Navigate to "{sitelocation}/kospgenerator-master/KOSPGenerator.aspx" within the browser.  You should see something similar to the screenshot below.
 
 ![KOSPFigure](https://github.com/definitivelogic/kospgenerator/blob/master/images/KOSPFigure.PNG)
+
+###System Requirements
+
+*SharePoint 2010/2013 or SharePoint for Office 365
+*Rights to Client Integration Features on SharePoint
 
 ##General Information
 
