@@ -12,18 +12,17 @@
 *  @author John Kerski (Definitive Logic)
 */
 		
-		//Global error handler
-		var gOldOnError = window.onerror;
+
 		// Override previous handler.
 		window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
-		  
+		  var _jquery = $;
 		  //Log error to Output for Testing
-		  $('#consoleOutput').text('Woops... got the following error:');
-		  $('#consoleOutput').append('<p> Error Message: ' + errorMsg + '</p>');
-		  $('#consoleOutput').append('<p> URL: ' + url + '</p>');
-		  $('#consoleOutput').append('<p> Line Number: ' + lineNumber + '</p>');		  
+		  _jquery('#consoleOutput').text('Woops... got the following error:');
+		  _jquery('#consoleOutput').append('<p> Error Message: ' + errorMsg + '</p>');
+		  _jquery('#consoleOutput').append('<p> URL: ' + url + '</p>');
+		  _jquery('#consoleOutput').append('<p> Line Number: ' + lineNumber + '</p>');		  
 		  
-		}
+		};
 		
 		/*
 		* @namespace Generator
@@ -63,10 +62,10 @@
 		{
 			var tempText = null;
 			
-			if(text != null)
+			if(text !== null)
 			{
 				tempText = text.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
-				    return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+				    return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
 				  }).replace(/\s+/g, '');
 				  
 				//Handles secondary lookups
@@ -80,7 +79,7 @@
 			
 			
 			return tempText;
-		}
+		};
 		
 		/** @function camelCase
 		 * Return camelCase  		
@@ -88,7 +87,7 @@
 		Generator.generateProperty = function(observableName,name,value)
 		{
 			return 'self.' + observableName + '.' + name + ' = "' + value + '";\n';
-		}
+		};
 		
 		/** @function getCode
 		 * Return Generators view model code based on url, list, and fields		
@@ -162,8 +161,9 @@
 				"/** @property {text}  SharePoint Type for modifiedBy*/\n",					
 				"self.modifiedBy.sPType = 'User';\n",				
 				"/** @property {text}  Static (Internal) Name for modifiedBy*/\n",																									
-				"self.modifiedBy.staticName = 'Editor';\n",								
+				"self.modifiedBy.staticName = 'Editor';\n"							
 			];
+			
 			//Iterate through each field	
 			for(var i = 0; i < fields.length; i++)
 			{
@@ -190,14 +190,13 @@
 					tempCode.push("/** @member {text} */\n");
 				
 					//Build Code
-					var tempText = "self." + tempObservableName + " = ko.observable('');\n";
+					var tempMLText = "self." + tempObservableName + " = ko.observable('');\n";
 					
 					//Add to code
-					tempCode.push(tempText);					
+					tempCode.push(tempMLText);					
 				}//End Multiline
 				else if(fields[i].type == Generator.SP_SINGLE_CHOICE || fields[i].type == Generator.SP_MULTI_CHOICE)
 				{	
-					
 					if(fields[i].type == Generator.SP_MULTI_CHOICE)
 					{
 						//Build Comment
@@ -223,28 +222,28 @@
 					tempCode.push("/** @member {Array} Possible Choices */\n");
 					
 					//Build Code
-					var tempText = "self." + tempObservableName + "_Choices = ko.observableArray([\n";
+					var tempPCText = "self." + tempObservableName + "_Choices = ko.observableArray([\n";
 					
 					for(var j = 0; j < fields[i].properties.choices.length; j++)
 					{
-						tempText = tempText + '\t{choice:"' + fields[i].properties.choices[j].choice + '"}';
+						tempPCText = tempPCText + '\t{choice:"' + fields[i].properties.choices[j].choice + '"}';
 						
 						if(j != (fields[i].properties.choices.length -1))
 						{
 							//Add comma
-							tempText = tempText + ",\n";
+							tempPCText = tempPCText + ",\n";
 						}
 						else//Just add new line
 						{
-							tempText = tempText + "\n";
+							tempPCText = tempPCText + "\n";
 						}
-					};//end for loop
+					}//end for loop
 					
 					//Close array
-					var tempText = tempText + "]);\n";
+					tempPCText = tempPCText + "]);\n";
 					
 					//Add to code
-					tempCode.push(tempText);
+					tempCode.push(tempPCText);
 				}//end Choice and MultiChoice
 				else if(fields[i].type == Generator.SP_NUMBER)
 				{
@@ -252,16 +251,16 @@
 					tempCode.push("/** @member {number} */\n");
 
 					//Build Code
-					var tempText = "self." + tempObservableName + " = ko.observable('');\n";
+					var tempNumText = "self." + tempObservableName + " = ko.observable('');\n";
 					
 					//Add to code
-					tempCode.push(tempText);
+					tempCode.push(tempNumText);
 					
 					//Check for Percentage
 					if(fields[i].properties.percentage == "TRUE")
 					{
 						//Add computed for display this value properly.
-						var tempComputed = "self." + tempObservableName + "_Display = ko.computed(function(){\n"
+						var tempComputed = "self." + tempObservableName + "_Display = ko.computed(function(){\n";
 						tempComputed = tempComputed + '\t if(self.' + tempObservableName + "() == null){return null;}\n";
 						tempComputed = tempComputed + '\t else{return self.' + tempObservableName + '()*100 + "%";}\n';
 						tempComputed = tempComputed + "\t});";
@@ -276,10 +275,10 @@
 					tempCode.push("/** @member {text} */\n");
 
 					//Build Code
-					var tempText = "self." + tempObservableName + " = ko.observable('');\n";
+					var tempCurrText = "self." + tempObservableName + " = ko.observable('');\n";
 					
 					//Add to code
-					tempCode.push(tempText);					
+					tempCode.push(tempCurrText);					
 					
 				}//end Currency
 				else if(fields[i].type == Generator.SP_DATETIME)
@@ -288,10 +287,10 @@
 					tempCode.push("/** @member {Date} */\n");
 
 					//Build Code
-					var tempText = "self." + tempObservableName + " = ko.observable('');\n";
+					var tempDTText = "self." + tempObservableName + " = ko.observable('');\n";
 					
 					//Add to code
-					tempCode.push(tempText);	
+					tempCode.push(tempDTText);	
 				}//end DateTime
 				else if(fields[i].type == Generator.SP_SINGLE_LOOKUP || fields[i].type == Generator.SP_SINGLE_USER)
 				{
@@ -300,10 +299,10 @@
 
 					//Build Code
 					//Lookup will have an object property for id and value
-					var tempText = "self." + tempObservableName + " = ko.observable('');\n";
+					var tempLUText = "self." + tempObservableName + " = ko.observable('');\n";
 					
 					//Add to code
-					tempCode.push(tempText);	
+					tempCode.push(tempLUText);	
 				}//end lookup and user
 				else if(fields[i].type == Generator.SP_MULTI_LOOKUP || fields[i].type == Generator.SP_MULTI_USER)
 				{
@@ -312,10 +311,10 @@
 
 					//Build Code
 					//Lookup will have an array of object with properties id and value
-					var tempText = "self." + tempObservableName + " = ko.observableArray();\n";
+					var tempMLUText = "self." + tempObservableName + " = ko.observableArray();\n";
 					
 					//Add to code
-					tempCode.push(tempText);	
+					tempCode.push(tempMLUText);	
 				}//end Multiple lookup and Multiple User
 				else if(fields[i].type == Generator.SP_YESNO)
 				{
@@ -323,21 +322,21 @@
 					tempCode.push("/** @member {boolean} */\n");
 
 					//Build Code
-					var tempText = "self." + tempObservableName + " = ko.observable();\n";
+					var tempYNText = "self." + tempObservableName + " = ko.observable();\n";
 					
 					//Add to code
-					tempCode.push(tempText);				
+					tempCode.push(tempYNText);				
 					
 					
 					//Build computed function to translate true and false to yes and no
-					var tempComputed = "self." + tempObservableName + "_Display = ko.computed(function(){\n"
-					tempComputed = tempComputed + '\t if(self.' + tempObservableName + "() == null){return null;}\n";
-					tempComputed = tempComputed + '\t else if(self.' + tempObservableName + "() == true){return 'Yes';}\n";
-					tempComputed = tempComputed + '\t else if(self.' + tempObservableName + "() == false){return 'No';}\n";										
-					tempComputed = tempComputed + "\t});";
+					var tempYNComputed = "self." + tempObservableName + "_Display = ko.computed(function(){\n";
+					tempYNComputed = tempYNComputed + '\t if(self.' + tempObservableName + "() == null){return null;}\n";
+					tempYNComputed = tempYNComputed + '\t else if(self.' + tempObservableName + "() == true){return 'Yes';}\n";
+					tempYNComputed = tempYNComputed + '\t else if(self.' + tempObservableName + "() == false){return 'No';}\n";										
+					tempYNComputed = tempYNComputed + "\t});";
 					
 					//Add to code
-					tempCode.push(tempComputed);
+					tempCode.push(tempYNComputed);
 				}
 				else
 				{
@@ -346,26 +345,26 @@
 				}
 				
 				//Check if we need to add a property
-				if(addProperties == true)
+				if(addProperties === true)
 				{
 					
 					//Add Comment
 					tempCode.push('/** @property {text}  SharePoint Type for ' + tempObservableName + '*/\n');
 					
 					//Add SP Property
-					var tempText = Generator.generateProperty(tempObservableName,"sPType",fields[i].type);
+					var tempSPPropertyText = Generator.generateProperty(tempObservableName,"sPType",fields[i].type);
 
 					//Add Code
-					tempCode.push(tempText);
+					tempCode.push(tempSPPropertyText);
 					
 					//Add Comment
 					tempCode.push('/** @property {text}  Static (Internal) Name for ' + tempObservableName + '*/\n');
 					
 					//Add Static Name Property
-					tempText = Generator.generateProperty(tempObservableName,"staticName",fields[i].staticName);
+					tempSPPropertyText = Generator.generateProperty(tempObservableName,"staticName",fields[i].staticName);
 					
 					//Add Code
-					tempCode.push(tempText);
+					tempCode.push(tempSPPropertyText);
 				}
 				
 			}//end for loop
@@ -377,12 +376,7 @@
 			//Return joined code;
 			return tempCode.join('');
 			
-			
-			
-						
-			//Test
-			//return "(function(){ var self = this; self.run = function(){alert('Hello World Again');};  self.run();})();";
-		}//end Generator.getCode
+		};//end Generator.getCode
 		
 		/** @function ViewModel
 		 * Knockout view model for KOSPGenerator
@@ -600,7 +594,7 @@
 			
 			/** @function returns true if self.viewModelCode is filled out. Otherwise returns false  */			
 			self.hasCode = ko.computed(function(){
-				if(self.viewModelCode() != null && self.viewModelCode() != '')
+				if(self.viewModelCode() !== null && self.viewModelCode() !== '')
 				{
 					return true;
 				}

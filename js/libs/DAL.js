@@ -43,7 +43,7 @@
 								
 								var temp = {
 									title : tempTitle
-								}
+								};
 								
 								lists.push(temp);
 							});
@@ -90,7 +90,7 @@
 								var temp = {
 									name : tempName,
 									id : tempID
-								}
+								};
 								
 								if(tempName != "Folder") //Don't add folders
 								{
@@ -108,7 +108,7 @@
 			  });//End SPService Function
 			}).promise();//End Deferred function
 			
-		}//end DAL.getContentTypesFromList
+		};//end DAL.getContentTypesFromList
 
 		/** @function getAllSubWebCollection
 		 * Return Get Sub Sites	and includes current site
@@ -139,7 +139,7 @@
 								var temp = {
 									title : tempTitle,
 									url : tempURL
-								}
+								};
 								
 								webs.push(temp);
 							});
@@ -188,9 +188,6 @@
 								var tempType = $node.attr("Type");
 								var tempDisplayName = $node.attr("DisplayName");
 								var tempRequired = $node.attr("Required");
-								
-								//Build array of properties specific to the data type																							
-								var tempProperties = [];		
 																
 								//Add properties now based on type
 								if(tempType == "Note")
@@ -270,7 +267,7 @@
 									displayName : tempDisplayName,
 									required : tempRequired,
 									properties : tempProperties
-								}
+								};
 								
 								fields.push(temp);
 							});
